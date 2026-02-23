@@ -316,7 +316,3 @@ noteIdInput.addEventListener('keydown', (e) => {
 });
 
 // Initial fetch if value exists
-if (noteIdInput.value) {
-    // Small delay to ensure CSS is loaded
-    setTimeout(() => fetchBtn.click(), 500);
-}
