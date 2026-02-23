@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>note Search - 記事タイトル検索</title>
+    <link rel="icon" type="image/png" href="iitomo_note.png">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-icon">
+                <img src="iitomo_note.png" alt="Icon">
+            </div>
+            <h1>note <span>Search</span></h1>
+            <p class="subtitle">過去の記事も逃さず、瞬時に見つける</p>
+        </header>
+
+        <main>
+            <section class="config-section card">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="sns-service">サービス</label>
+                        <select id="sns-service">
+                            <option value="note" selected>note.com</option>
+                            <option value="zenn">Zenn.dev</option>
+                            <option value="qiita">Qiita.com</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label id="id-label" for="note-id">ユーザーID</label>
+                        <div class="input-wrapper">
+                            <span id="url-prefix" class="prefix">note.com/</span>
+                            <input type="text" id="note-id" placeholder="iitomo3" value="iitomo3">
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button id="fetch-btn" class="primary-btn">一括取得</button>
+                    <button id="reset-btn" class="secondary-btn">リセット</button>
+                </div>
+            </section>
+
+            <section class="search-section card">
+                <div class="search-wrapper">
+                    <input type="text" id="search-input" placeholder="タイトルで検索..." disabled>
+                    <span class="search-icon">🔍</span>
+                </div>
+                <div class="stats">
+                    <span id="article-count">記事が見つかりません</span>
+                    <div class="export-actions">
+                        <button id="export-btn" class="text-link-btn hidden">スプレッドシート用に全件コピー</button>
+                        <button id="csv-btn" class="text-link-btn hidden">CSVで保存</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section">
+                <div id="results-list" class="results-list">
+                    <!-- 記事がここに表示されます -->
+                    <div class="empty-state">
+                        <p>IDを入力して「取得」ボタンを押してください</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 NoteSearch Tool</p>
+        </footer>
+    </div>
+
+    <div id="loader" class="loader-overlay hidden">
+        <div class="loader-content">
+            <div class="loader"></div>
+            <p class="loader-text">取得中...</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
